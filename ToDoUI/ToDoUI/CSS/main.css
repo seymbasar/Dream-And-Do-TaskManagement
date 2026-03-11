@@ -1,0 +1,726 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* #363532, rgb(88, 111, 112) */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-family: "Work Sans", sans-serif;
+    min-height: 100vh;
+    padding-top: 3%;
+}
+
+/* Body light or darker themes */
+.standard {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+    color: #ffdfdb;
+    transition: 0.3s linear;
+}
+
+.light {
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+    color: #1a150e;
+    transition: 0.3s linear;
+}
+
+.darker {
+    background-image: linear-gradient(100deg, #001214, #001f29);
+    color: white;
+    transition: 0.3s linear;
+}
+
+#header,
+#form,
+#datetime {
+    margin: 0 1rem;
+    min-height: 10vh;
+    width: 100%;
+}
+
+#header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 3rem;
+    min-height: 25vh;
+    width: 100%;
+}
+
+/* Theme buttons div */
+.flexrow-container {
+    align-items: center;
+    align-self: flex-end;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 3%;
+}
+
+.theme-selector {
+    border: 1px solid #d1dae3;
+    border-radius: 100%;
+    height: 35px;
+    margin: 0 8px;
+    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    width: 35px;
+}
+
+    .theme-selector:hover {
+        box-shadow: white 0 0 8px;
+        cursor: pointer;
+    }
+
+    .theme-selector:active {
+        transform: scale(0.95);
+    }
+
+.standard-theme {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light-theme {
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+}
+
+.darker-theme {
+    background-image: linear-gradient(100deg, #001214, #001f29);
+}
+
+/* Başlık Ayarları */
+#title {
+    display: inline-block;
+    width: 10ch;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+    animation: animated-text 2s steps(10, end) 0.5s 1 normal both;
+}
+
+/* İMLEÇ (Ayrı bir öğe yaptık) */
+#cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em; /* Yazı boyuna göre ayarlar */
+    background-color: white; /* Diğer temalarda beyaz */
+    vertical-align: middle;
+    margin-left: 2px;
+    animation: cursor-blink 750ms infinite;
+}
+
+/* LIGHT TEMA ÖZELLEŞTİRMESİ */
+/* Light temada hem başlık hem imleç siyah olacak */
+.light #title {
+    color: black;
+}
+
+.light #cursor {
+    background-color: black;
+}
+
+/* ANİMASYONLAR */
+@keyframes animated-text {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 10ch;
+    }
+}
+
+@keyframes cursor-blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+form {
+    display: flex;
+    font-size: 1.7rem;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 0.8rem;
+    width: 100%;
+}
+
+    form input {
+        padding: 10px;
+        font-size: 17px;
+        border: none;
+        outline: none;
+        /* border-radius: 15; */
+        border-top-left-radius: 17px;
+        border-bottom-left-radius: 17px;
+        max-width: 500px;
+        transition: background-color 200ms ease-in-out;
+        width: 100%;
+    }
+
+        /* Input themes */
+        form input.standard-input {
+            background-color: #181a1a;
+            color: rgb(247, 226, 223);
+        }
+
+        form input.light-input {
+            background-color: #aeb1b4;
+            color: #1a150e;
+        }
+
+            form input.light-input::placeholder {
+                color: #1a150e;
+                opacity: 0.7;
+            }
+
+        form input.darker-input {
+            background-color: #01394c;
+            color: white;
+        }
+
+            form input.darker-input::placeholder {
+                color: white;
+                opacity: 0.7;
+            }
+
+        form input:hover {
+            cursor: text;
+        }
+
+        form input.standard-input:hover {
+            background-color: rgb(0, 0, 0);
+        }
+
+        form input.light-input:hover {
+            background-color: #919699;
+        }
+
+        form input.darker-input:hover {
+            background-color: #013141;
+        }
+
+button {
+    border: none;
+    outline: none;
+    transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+}
+
+    button:hover {
+        cursor: pointer;
+    }
+
+    /* Button themes */
+    button.standard-button {
+        background-color: rgb(247, 226, 223);
+        color: rgb(0, 0, 0);
+    }
+
+        button.standard-button:hover {
+            background-color: white;
+            box-shadow: #fff8 0 0 10px;
+        }
+
+    button.light-button {
+        background-color: white;
+        color: #1a150e;
+    }
+
+        button.light-button:hover {
+            background-color: #f0f0f0;
+        }
+
+    button.darker-button {
+        background-color: #002837;
+        color: white;
+    }
+
+        button.darker-button:hover {
+            background-color: #001f29;
+        }
+
+form button {
+    padding: 10px;
+    font-size: 17px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    min-width: 100px;
+}
+
+#myUnOrdList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+}
+
+.todo-list {
+    min-width: 25%;
+    overflow: hidden;
+    /* To remove the bullets of unordered list */
+    list-style: none;
+    margin-bottom: 10px !important;
+}
+
+.todo {
+    margin: 1rem;
+    /* background: rgb(247, 226, 223); */
+    /* color: black; */
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 30px;
+    transition: background-color 200ms ease-in-out;
+}
+
+/* Items themes */
+.standard-todo {
+    background-color: rgb(26, 27, 27);
+}
+
+.light-todo {
+    background-color: #aeb1b4;
+}
+
+.darker-todo {
+    background-color: #01394c;
+}
+
+.todo li {
+    padding: 7px;
+    /* word-wrap: break-word; */
+    /* flex-wrap: wrap; */
+    font-size: 20px;
+    flex: 1; /* To push the trash and the check button to the right */
+    border-radius: 30px;
+    /* wraps the links */
+    overflow-wrap: anywhere;
+}
+
+.check-btn,
+.delete-btn {
+    font-size: 19px;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    border-radius: 80%;
+    margin: 0 5px;
+}
+
+.todo-item {
+    padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    transition: 0.2s;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall {
+    transition: 0.5s;
+    transform: translateY(45rem) rotateZ(45deg);
+    opacity: 0;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1000px) {
+    .flexrow-container {
+        align-self: unset;
+        margin-right: 0;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #header {
+        font-size: 2rem;
+    }
+
+    #title {
+        animation: animated-text 3s steps(16, end) 0.5s 1 normal both, animated-cursor 750ms steps(16, end) infinite;
+        margin-bottom: 10px;
+        margin-top: 30px;
+        max-width: 330px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #header {
+        font-size: 1.5rem;
+    }
+
+    #title {
+        animation: animated-text 3.5s steps(16, end) 0.5s 1 normal both, animated-cursor 750ms steps(16, end) infinite;
+        max-width: 255px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    form {
+        align-items: center;
+        flex-direction: column;
+    }
+
+        form input {
+            border-radius: 17px;
+        }
+
+        form button {
+            border-radius: 15px;
+            margin-top: 15px;
+            width: 50%;
+        }
+
+        form > button.light-button {
+            box-shadow: 0 0 5px lightgray;
+        }
+}
+
+#board-container {
+    display: block !important;
+    column-count: 3; /* Ekran görüntüne göre 3 ideal duracaktır */
+    column-gap: 20px;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    display: inline-block !important;
+    width: 100%;
+    margin-bottom: 25px; /* Kartlar arası dikey boşluğu artırdık */
+    break-inside: avoid;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    /* Siyah Çerçeve ve Belirginlik Ayarları */
+    border: 2px solid #000000 !important; /* Net siyah çerçeve */
+    border-radius: 15px;
+    padding: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Kartı zeminden ayırmak için gölge */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Ekran boyutuna göre sütunları düşürelim */
+@media (max-width: 1200px) {
+    #board-container {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 900px) {
+    #board-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    #board-container {
+        column-count: 1;
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Üzerine gelince hafifçe yukarı kalkar */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+/* LIGHT TEMA İÇİN KART ÖZELLEŞTİRMESİ */
+.light .card {
+    background: rgba( 255, 255, 255, 0.8 ) !important; /* Kartın içini daha belirgin beyaz yapıyoruz */
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Hafif bir gölge ile derinlik katıyoruz */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    .light .card h3 {
+        color: #000000 !important; /* Başlık rengini zorla siyah yapıyoruz */
+        font-weight: bold;
+    }
+
+/* LIGHT TEMA İÇİN ÇİZGİ DÜZELTMESİ */
+.light .todo-list li {
+    /* Light temada beyaz çizgi görünmez, o yüzden koyu bir şeffaflık kullanıyoruz */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    color: #2c3e50; /* Yazı rengini de bir tık yumuşatalım */
+}
+
+/* Kartın içindeki "Ekle..." inputu Light temada kaybolmasın */
+.light .item-in {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.2) !important;
+    color: black !important;
+}
+
+.search-section {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Her iki giriş çubuğu için ortak stil */
+#search-input,
+.todo-input {
+    background: rgba(255, 255, 255, 0.2); /* Yarı saydam beyaz */
+    backdrop-filter: blur( 10px ); /* Arkasını hafif bulandırır, okunurluğu artırır */
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Belirgin beyaz çerçeve */
+    color: white; /* Yazı her zaman beyaz olsun */
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2); /* Yazı arkasına hafif gölge */
+    padding: 12px 20px;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+    /* Üzerine gelince veya tıklayınca parlaması için */
+    #search-input:focus,
+    .todo-input:focus {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Placeholder (İçindeki silik yazı) rengi */
+    #search-input::placeholder,
+    .todo-input::placeholder {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+/* Kart Ekle butonunu da bu stile uyduralım */
+.todo-btn {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+    .todo-btn:hover {
+        transform: scale(1.05);
+    }
+
+/* LIGHT TEMA ÖZELLEŞTİRMESİ (Sadece Light seçiliyken çalışır) */
+.light #search-input,
+.light .todo-input {
+    border: 2px solid rgba(0, 0, 0, 0.8); /* Siyah çerçeve */
+    color: black; /* Siyah yazı */
+    background: rgba( 255, 255, 255, 0.4 ); /* İçleri yine beyaz kalsın ama daha belirgin */
+}
+
+    /* Light temadaki placeholder (iç yazı) rengini de siyah yapalım */
+    .light #search-input::placeholder,
+    .light .todo-input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+/* Butonun da Light temada belirgin olması için */
+.light .todo-btn {
+    background: #000; /* Siyah buton */
+    color: #fff; /* Beyaz yazı */
+}
+
+/* Kart içindeki her bir görevin genel kutusu */
+.card .todo {
+    background: rgba(255, 255, 255, 0.1) !important;
+    margin: 10px 0 !important;
+    padding: 10px 15px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    transition: all 0.3s ease;
+}
+
+/* Görev yazısı */
+.card .todo-item {
+    font-size: 16px !important;
+    color: white !important;
+    font-weight: 500;
+}
+
+/* Butonları yan yana tutan gizli kutu */
+.card .todo button {
+    cursor: pointer;
+    border: none;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 8px !important;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* Onay Butonu: Hafif yeşil şeffaflık */
+.card .check-btn {
+    background: rgba(46, 204, 113, 0.2) !important;
+    color: #2ecc71 !important;
+}
+
+    .card .check-btn:hover {
+        background: #2ecc71 !important;
+        color: white !important;
+    }
+
+/* Silme Butonu: Hafif kırmızı şeffaflık */
+.card .delete-btn {
+    background: rgba(231, 76, 60, 0.2) !important;
+    color: #e74c3c !important;
+}
+
+    .card .delete-btn:hover {
+        background: #e74c3c !important;
+        color: white !important;
+    }
+
+/* Light Tema için renk düzeltmesi */
+.light .card .todo-item {
+    color: #2c3e50 !important;
+}
+
+.light .card .todo {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Tüm temalardaki madde çizgilerini yok eder */
+.todo-list li,
+.light .todo-list li,
+.card .todo {
+    border-bottom: none !important;
+    border: none !important;
+    box-shadow: none !important; /* Eğer gölge çizgisi varsa onu da siler */
+}
+
+/* Maddelerin altındaki o ince gri board görüntüsünü tamamen temizler */
+.todo {
+    border: none !important;
+}
+
+    .todo.dragging {
+        opacity: 0.5;
+        border: 2px dashed #3498db !important;
+    }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+.todo {
+    animation: fadeIn 0.3s ease-out forwards;
+    transition: all 0.3s ease !important;
+}
+
+.fall {
+    transform: translateX(100px) rotate(10deg) !important;
+    opacity: 0 !important;
+}
+
+/* Modern Bildirim Penceresi */
+.custom-confirm {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+    .custom-confirm.show {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .custom-confirm p {
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+.confirm-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+    .confirm-btns button {
+        padding: 8px 20px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        transition: opacity 0.2s;
+    }
+
+.btn-yes {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-no {
+    background: #95a5a6;
+    color: white;
+}
+
+.confirm-btns button:hover {
+    opacity: 0.8;
+}
+
+.edit-title-input {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: inherit;
+    font-size: 1.17em; /* h3 boyutuyla aynı kalsın */
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 2px 5px;
+    width: 80%;
+    outline: none;
+}
+
+/* Başlığın üzerine gelince tıklanabilir olduğunu belli edelim */
+.card h3 {
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+    .card h3:hover {
+        opacity: 0.7;
+    }
