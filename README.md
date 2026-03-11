@@ -1,5 +1,6 @@
 # 🚀 Dream & Do - Task Management System (Trello Clone)
 
+<img width="1885" height="879" alt="Image" src="https://github.com/user-attachments/assets/8aa5d5a9-2893-4c8b-90e9-fb0bb4e89508" />
 
 ## 🇹🇷 Proje Hakkında (TR)
 **Dream & Do**, modern iş akışlarını yönetmek için tasarlanmış, kurumsal kod standartlarını estetik ve hızla birleştiren profesyonel bir web uygulamasıdır. Bu proje, **Arı Bilgi** bünyesinde tamamladığım 250 saatlik Yazılım Uzmanlığı eğitimi kapsamında, temiz kod prensipleri uygulanarak geliştirilmiştir.
